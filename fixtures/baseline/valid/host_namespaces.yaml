@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+spec:
+  hostNetwork: false
+---
+apiVersion: v1
+kind: Pod
+spec:
+  hostPID: false
+---
+apiVersion: v1
+kind: Pod
+spec:
+  hostIPC: false

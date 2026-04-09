@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    seLinuxOptions:
+      type: custom_t
+---
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: selinux
+      securityContext:
+        seLinuxOptions:
+          type: custom_t
+---
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    seLinuxOptions:
+      user: system_u
+---
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: selinux
+      securityContext:
+        seLinuxOptions:
+          role: system_r

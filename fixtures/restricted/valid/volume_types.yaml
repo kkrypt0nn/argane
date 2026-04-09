@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+spec:
+  volumes:
+    - name: data
+      emptyDir: {}
+  containers:
+    - name: volume_types
+      volumeMounts:
+        - name: data
+          mountPath: /data

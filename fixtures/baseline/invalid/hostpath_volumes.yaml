@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+spec:
+  volumes:
+    - name: hostpath_volumes
+      hostPath:
+        path: /

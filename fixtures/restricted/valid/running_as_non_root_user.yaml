@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    runAsUser: 1000
+---
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: running_as_non_root_user
+      securityContext:
+        runAsUser: 1000
+---
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+    - name: running_as_non_root_user

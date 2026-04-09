@@ -1,0 +1,50 @@
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: "argane"
+    main: ./cmd/argane/main.go
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+      - android
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: android
+        goarch: amd64
+    ldflags:
+      - -s -w
+      - -X "github.com/kkrypt0nn/argane/internal/buildinfo.Version={{.Version}}"
+      - -X "github.com/kkrypt0nn/argane/internal/buildinfo.BuildDate={{.Date}}"
+      - -X "github.com/kkrypt0nn/argane/internal/buildinfo.GitCommit={{.FullCommit}} ({{ if .IsGitClean }}clean{{ else }}dirty{{ end }})"
+
+archives:
+  - formats: [tar.gz]
+    wrap_in_directory: true
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^chore:"
+      - "^docs:"
+      - "^test:"
+
+release:
+  footer: >-
+
+    ---
+
+    Released by [GoReleaser](https://github.com/goreleaser/goreleaser).

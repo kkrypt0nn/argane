@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: apparmor
+---
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    appArmorProfile:
+      type: RuntimeDefault
+---
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: apparmor
+      securityContext:
+        appArmorProfile:
+          type: RuntimeDefault

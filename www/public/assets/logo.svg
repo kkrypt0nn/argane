@@ -1,0 +1,20 @@
+<svg
+  width="256"
+  height="256"
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="
+      M64 208
+      L128 48
+      L192 208
+      L168 208
+      L150 160
+      H106
+      L88 208
+      Z
+    "
+    fill="currentColor"
+  />
+</svg>

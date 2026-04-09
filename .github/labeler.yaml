@@ -1,0 +1,40 @@
+area/meta:
+  - changed-files:
+      - any-glob-to-any-file:
+          - CODE_OF_CONDUCT.md
+          - CONTRIBUTING.md
+          - LICENSE.md
+
+area/docker:
+  - changed-files:
+      - any-glob-to-any-file:
+          - Dockerfile
+
+area/dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - go.mod
+          - go.sum
+          - www/package.json
+          - www/package-lock.json
+
+area/docs:
+  - changed-files:
+      - any-glob-to-any-file:
+          - README.md
+
+area/github:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**/*
+
+area/policies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - policies/**/*
+
+area/tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - fixtures/**/*
+          - "**/*_test.go"

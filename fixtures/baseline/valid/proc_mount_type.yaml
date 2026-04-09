@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: proc_mount_type
+---
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: proc_mount_type
+      securityContext:
+        procMount: Default

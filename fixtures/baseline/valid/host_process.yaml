@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: host_process
+      securityContext:
+        windowsOptions:
+          hostProcess: false

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: privileged_containers
+      securityContext:
+        privileged: true

@@ -1,0 +1,75 @@
+name: Monitor Kubernetes Pod Security Standards Changes
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check_docs_file:
+    name: Check documentation file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Get latest commit hash
+        id: latest_commit_hash
+        run: |
+          LATEST_SHA=$(curl -s "https://api.github.com/repos/kubernetes/website/commits?path=content/en/docs/concepts/security/pod-security-standards.md&page=1&per_page=1" | jq -r '.[0].sha')
+          echo "latest_sha=$LATEST_SHA" >> $GITHUB_OUTPUT
+
+      - name: Read last commit hash
+        id: last_commit_hash
+        run: |
+          if [ -f ".github/LAST_K8S_DOCS_COMMIT" ]; then
+            LAST_SHA=$(cat .github/LAST_K8S_DOCS_COMMIT)
+          else
+            LAST_SHA=""
+          fi
+          echo "last_sha=$LAST_SHA" >> $GITHUB_OUTPUT
+
+      - name: Compare hashes
+        id: compare_hashes
+        run: |
+          if [ "${{ steps.latest_commit_hash.outputs.latest_sha }}" = "${{ steps.last_commit_hash.outputs.last_sha }}" ]; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Prepare issue file
+        if: steps.compare_hashes.outputs.changed == 'true'
+        run: |
+          LATEST_SHA=${{ steps.latest_commit_hash.outputs.latest_sha }}
+          echo "The Pod Security Standards file on the Kubernetes website was updated. Please review the changes." > .github/issue.md
+          echo "" >> .github/issue.md
+          echo "Commit: https://github.com/kubernetes/website/commit/$LATEST_SHA" >> .github/issue.md
+
+      - name: Create issue if file changed
+        if: steps.compare_hashes.outputs.changed == 'true'
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6
+        with:
+          title: Pod Security Standards documentation updated
+          content-filepath: .github/issue.md
+          labels: |
+            kind/automated
+            status/needs-review
+
+      - name: Remove temporary issue file
+        if: steps.compare_hashes.outputs.changed == 'true'
+        run: rm -f .github/issue.md
+
+      - name: Store latest hash
+        if: steps.compare.outputs.changed == 'true'
+        run: |
+          echo "${{ steps.get_sha.outputs.latest_sha }}" > .github/LAST_K8S_DOCS_COMMIT
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/LAST_K8S_DOCS_COMMIT
+          git commit -m "chore: Update LAST_K8S_DOCS_COMMIT to latest hash"
+          git push

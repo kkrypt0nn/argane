@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: seccomp
+---
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
