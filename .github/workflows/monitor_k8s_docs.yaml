@@ -65,7 +65,7 @@ jobs:
         run: rm -f .github/issue.md
 
       - name: Store latest hash
-        if: steps.compare.outputs.changed == 'true'
+        if: steps.compare_hashes.outputs.changed == 'true'
         run: |
           echo "${{ steps.get_sha.outputs.latest_sha }}" > .github/LAST_K8S_DOCS_COMMIT
           git config user.name "github-actions[bot]"
