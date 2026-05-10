@@ -26,27 +26,27 @@ export default defineConfig({
         {
           label: "Introduction",
           collapsed: false,
-          autogenerate: { directory: "introduction" },
+          items: [{ autogenerate: { directory: "introduction" } }],
         },
         {
           label: "Guides",
           collapsed: true,
-          autogenerate: { directory: "guides" },
+          items: [{ autogenerate: { directory: "guides" } }],
         },
         {
           label: "Commands",
           collapsed: true,
-          autogenerate: { directory: "commands" },
+          items: [{ autogenerate: { directory: "commands" } }],
         },
         {
           label: "Rules",
           collapsed: true,
-          autogenerate: { directory: "rules" },
+          items: [{ autogenerate: { directory: "rules" } }],
         },
         {
           label: "Frequently Asked Questions",
           collapsed: true,
-          autogenerate: { directory: "faq" },
+          items: [{ autogenerate: { directory: "faq" } }],
         },
         {
           label: "GitHub",
