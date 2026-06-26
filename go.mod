@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/spf13/cobra v1.10.2
 	golang.org/x/term v0.44.0
-	helm.sh/helm/v4 v4.2.1
+	helm.sh/helm/v4 v4.2.2
 	k8s.io/api v0.36.2
 	k8s.io/apimachinery v0.36.2
 	k8s.io/client-go v0.36.2
