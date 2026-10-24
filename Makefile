@@ -3,7 +3,7 @@
 BUILD_DATE 	:= $(shell date -u +%Y-%m-%dT%H:%M:%SZ)
 GIT_COMMIT 	:= $(shell git rev-parse HEAD)
 GIT_STATE 	:= $(shell test -n "`git status --porcelain`" && echo "dirty" || echo "clean")
-VERSION 	?= dev
+VERSION 		?= dev
 
 run:
 	go run ./cmd/argane/main.go $(ARGS)

@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.41.7",
-    "astro": "7.2.0",
-    "sharp": "0.35.3",
-    "starlight-auto-sidebar": "0.4.0",
-    "starlight-blog": "0.28.0",
+    "@astrojs/starlight": "0.42.7",
+    "astro": "7.4.2",
+    "sharp": "0.35.5",
+    "starlight-auto-sidebar": "0.4.1",
+    "starlight-blog": "0.30.2",
     "starlight-fullview-mode": "0.2.6"
   }
 }

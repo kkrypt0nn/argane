@@ -20,6 +20,10 @@ var allowedSysctlsTypes = map[string]bool{
 	"net.ipv4.tcp_fin_timeout":            true,
 	"net.ipv4.tcp_keepalive_intvl":        true,
 	"net.ipv4.tcp_keepalive_probes":       true,
+	"net.ipv4.tcp_rmem":                   true,
+	"net.ipv4.tcp_wmem":                   true,
+	"net.ipv4.tcp_slow_start_after_idle":  true,
+	"net.ipv4.tcp_notsent_lowat":          true,
 }
 
 func allowedSysctlsMessage() string {
@@ -57,6 +61,10 @@ Allowed values:
 - ` + "`net.ipv4.tcp_fin_timeout`" + `
 - ` + "`net.ipv4.tcp_keepalive_intvl`" + `
 - ` + "`net.ipv4.tcp_keepalive_probes`" + `
+- ` + "`net.ipv4.tcp_rmem`" + `
+- ` + "`net.ipv4.tcp_wmem`" + `
+- ` + "`net.ipv4.tcp_slow_start_after_idle`" + `
+- ` + "`net.ipv4.tcp_notsent_lowat`" + `
 
 The rule checks the following fields:
 

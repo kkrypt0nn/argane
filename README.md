@@ -1,7 +1,7 @@
 # Argane
 
 [![CI Badge](https://github.com/kkrypt0nn/argane/actions/workflows/ci.yaml/badge.svg)](https://github.com/kkrypt0nn/argane/actions)
-[![Targeted Kubernetes Version Badge](https://img.shields.io/badge/Kubernetes-v1.35-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/)
+[![Targeted Kubernetes Version Badge](https://img.shields.io/badge/Kubernetes-v1.37-326CE5?logo=kubernetes&logoColor=white)](https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/)
 [![Go Report Card Badge](https://goreportcard.com/badge/github.com/kkrypt0nn/argane)](https://goreportcard.com/report/github.com/kkrypt0nn/argane)
 [![Last Commit Badge](https://img.shields.io/github/last-commit/kkrypt0nn/argane)](https://github.com/kkrypt0nn/argane/commits/main)
 [![Conventional Commits Badge](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org/en/v1.0.0/)

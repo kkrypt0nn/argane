@@ -7,8 +7,8 @@ description: Argane is a Kubernetes security validator for YAML manifests, Helm 
   <a href="https://github.com/kkrypt0nn/argane/actions">
     <img alt="CI Badge" src="https://github.com/kkrypt0nn/argane/actions/workflows/ci.yaml/badge.svg" />
   </a>
-  <a href="https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/">
-    <img alt="Targeted Kubernetes Version Badge" src="https://img.shields.io/badge/Kubernetes-v1.35-326CE5?logo=kubernetes&logoColor=white" />
+  <a href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/">
+    <img alt="Targeted Kubernetes Version Badge" src="https://img.shields.io/badge/Kubernetes-v1.37-326CE5?logo=kubernetes&logoColor=white" />
   </a>
   <a href="https://goreportcard.com/report/github.com/kkrypt0nn/argane">
     <img alt="Go Report Card Badge" src="https://goreportcard.com/badge/github.com/kkrypt0nn/argane" />
