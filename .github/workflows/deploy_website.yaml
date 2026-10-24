@@ -11,10 +11,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
     uses: kkrypt0nn/actions/.github/workflows/deploy_website.yaml@764909eeff7c880e26da91d6f31a208fdb45d57b # v0.2.0
